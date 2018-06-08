@@ -190,25 +190,25 @@ class crm_tracking_campaign(models.Model):
 #             help="This pricelist will be used, instead of the default one, for sales to the current partner"),
 #     }
 
-class ResPartner(models.Model):
-    _inherit = 'res.partner'
-
-    @api.model
-    def _commercial_fields(self):
-        return super(ResPartner, self)._commercial_fields() + ['partner_product_pricelist']
-
-    @api.model
-    def default_pricelist(self):
-        return self.env.ref('product.list0')
-    partner_product_pricelist = fields.Many2one(comodel_name='product.pricelist', domain=[('type','=','sale')], string='Sale Pricelist', help="This pricelist will be used, instead of the default one, for sales to the current partner", default=default_pricelist)
-
-    @api.model
-    def search_pricelist(self, operator, value):
-        return [('partner_product_pricelist', operator, value)]
+# class ResPartner(models.Model):
+#     _inherit = 'res.partner'
+#
+#     @api.model
+#     def _commercial_fields(self):
+#         return super(ResPartner, self)._commercial_fields() + ['partner_product_pricelist']
+#
+#     @api.model
+#     def default_pricelist(self):
+#         return self.env.ref('product.list0')
+#     partner_product_pricelist = fields.Many2one(comodel_name='product.pricelist', domain=[('type','=','sale')], string='Sale Pricelist', help="This pricelist will be used, instead of the default one, for sales to the current partner", default=default_pricelist)
+#
+#     @api.model
+#     def search_pricelist(self, operator, value):
+#         return [('partner_product_pricelist', operator, value)]
 
 # class res_lang(models.Model):
 #     _inherit = 'res.lang'
-#
+
 #     pricelist = fields.Many2one(
 #         comodel_name='product.pricelist',
 #         domain=[('type', '=', 'sale')],
