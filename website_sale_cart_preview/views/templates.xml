@@ -107,9 +107,9 @@
 </template>
 
 
-<template id="website_sale.header" inherit_id="website.layout" name="Header Shop My Cart Link">
-    <xpath expr="//header//ul[@id='top_menu']/li" position="before">
-        <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+<template id="header" inherit_id="website_sale.header" name="Header Shop My Cart Link">
+    <xpath expr="//li[1]" position="replace">
+        <!--<t t-set="website_sale_order" t-value="website.sale_get_order()"/>-->
         <li id="add_to_cart_preview" class="dropdown"
             t-att-class="'' if website_sale_order and website_sale_order.cart_quantity else 'hidden'">
             <a href="/shop/cart">
