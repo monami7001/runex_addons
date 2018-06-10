@@ -101,20 +101,6 @@
             <xpath expr="//img[@itemprop='image']" position="replace">
                 <img class="img img-responsive" t-att-src="'/imagefield/product.template/image/%s/ref/product_imagemagick.img_product_thumnail' %product.id" t-att-alt="product.name"/>
             </xpath>
-            <xpath expr="//b" position="replace">
-                <b>
-                  <span t-field="product.price" style="white-space: nowrap;"  t-field-options='{
-                       "widget": "monetary",
-                       "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
-                   }'>
-                  </span>
-                  <span itemprop="price" style="display:none;" t-esc="product.price"/>
-                  <span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name" class='decimal_precision' t-att-data-precision="website.pricelist_id.currency_id.rounding"/>
-              </b>
-            </xpath>
-            <xpath expr="//div[@class='ribbon btn btn-danger']" position="attributes">
-                <attribute name="class">ribbon btn btn-danger ribbon-runex</attribute>
-            </xpath>
         </template>
 
         <template id="search" inherit_id="website_sale.search">

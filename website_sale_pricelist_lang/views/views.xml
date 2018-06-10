@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.product.property.form.inherited.website_crm_campaign_runex</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="product.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="property_product_pricelist" position="before">
+                    <field name="partner_product_pricelist" groups="product.group_sale_pricelist"/>
+                </field>
+                <field name="property_product_pricelist" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+        <record id="res_lang_form" model="ir.ui.view">
+            <field name="name">res.lang.form.inherited.website_crm_campaign_runex</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_form"/>
+            <field name="arch" type="xml">
+                <field name="translatable" position="after">
+                    <field name="pricelist"/>
+                </field>
+            </field>
+        </record>
+
+
+
+    </data>
+</openerp>

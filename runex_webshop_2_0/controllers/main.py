@@ -79,9 +79,6 @@ class table_compute(object):
 
 class website_sales(website_sale):
 
-    def get_pricelist(self):
-        return request.env.user.sudo().partner_id.property_product_pricelist
-
     @http.route([
         '/shop',
         '/shop/page/<int:page>',
@@ -186,54 +183,6 @@ class website_sales(website_sale):
             'url': url,
         }
         return request.website.render("website_sale.products", values)
-
-
-    # @http.route([
-    #     '/shop',
-    #     '/shop/page/<int:page>',
-    #     '/shop/category/<model("product.public.category"):category>',
-    #     '/shop/category/<model("product.public.category"):category>/page/<int:page>'
-    # ], type='http', auth="public", website=True)
-    # def shop(self, page=0, category=None, search='', **post):
-    #     ppg = PPG
-    #     res = super(website_sale, self).shop(page=page,
-    #                                         category=category,
-    #                                         search=search, ppg=ppg,
-    #                                         **post)
-    #     cr, uid, context, pool = request.cr, request.uid, request.context, request.registry
-    #     if post.get('limit'):
-    #         limit = post.get('limit')
-    #         try:
-    #             int(limit)
-    #             ppg = abs(int(limit))
-    #         except:
-    #             pass
-    #     if not context.get('pricelist'):
-    #         pricelist = self.get_pricelist()
-    #         context['pricelist'] = int(pricelist)
-    #     else:
-    #         pricelist = pool.get('product.pricelist').browse(cr, uid, context['pricelist'], context)
-    #     post['order'] = post.get('order', 'name')
-    #     view_type = 'grid_view'
-    #     if post.get('view_type') and post.get('view_type') == 'list_view':
-    #         view_type = 'list_view'
-    #
-    #     attrib_list = request.httprequest.args.getlist('attrib')
-    #     attrib_values = [map(int, v.split("-")) for v in attrib_list if v]
-    #     domain = self._get_search_domain(search, category, attrib_values)
-    #     product_obj = pool.get('product.template')
-    #     product_count = product_obj.search_count(cr, uid, domain, context=context)
-    #
-    #     res.qcontext.update({
-    #         'page': page,
-    #         'bins': table_compute().process(res.qcontext.get('products'), ppg),
-    #         'product_count': product_count,
-    #         'view_type': view_type,
-    #         'limit': ppg,
-    #         # 'url': url,
-    #         'url': res.qcontext.get('keep'),
-    #     })
-    #     return res
 
     def _get_search_domain(self, search, category, attrib_values):
         domain = request.website.sale_product_domain()

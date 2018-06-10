@@ -28,7 +28,6 @@
         'views/product_view.xml',
         'views/views.xml',
         'views/website_sale_template.xml',
-        'views/partner_pricelist_update.xml',
     ],
     "test": [],
     "js": [],
