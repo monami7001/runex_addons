@@ -101,6 +101,9 @@
             <xpath expr="//img[@itemprop='image']" position="replace">
                 <img class="img img-responsive" t-att-src="'/imagefield/product.template/image/%s/ref/product_imagemagick.img_product_thumnail' %product.id" t-att-alt="product.name"/>
             </xpath>
+            <xpath expr="//div[@class='ribbon btn btn-danger']" position="attributes">
+                <attribute name="class">ribbon btn btn-danger ribbon-runex</attribute>
+            </xpath>
         </template>
 
         <template id="search" inherit_id="website_sale.search">
