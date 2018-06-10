@@ -27,10 +27,10 @@
         </record>
 
         <menuitem
-            name="Update Partners Pricelist"
+            name="Rollback Partners Pricelist"
             action="action_view_base_pricelist_update"
             id="menu_view_base_pricelist_update"
-            groups="base.group_no_one"
+            groups="base.group_system"
             parent="base.menu_sales"
             sequence="15"/>
 
