@@ -16,7 +16,6 @@
     'data': [
         'views/views.xml',
         'views/website_sale_template.xml',
-        'views/partner_pricelist_update.xml',
     ],
     'installable': True,
     'auto_install': False,
